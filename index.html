@@ -148,7 +148,128 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #FFFFFF;">
+<header>
+    <h1>GraspFast: Multi-stage Lightweight 6-DoF Grasp Pose Fast Detection for Robot General Grasping in Cluttered Scenes</h1>
+    <h2><em>Haiyuan Gui, Shanchen Pang*, Xiao He, Luqi Wang, Xue Zhai, Shihang Yu, Kuijie Zhang</em></h2>
+    <h3><em>China University of Petroleum (East China), Qingdao 266580, China</em></h3>
+    <a href="https://github.com/upc-ghy/GraspFast">Code</a>
+    <h3>To address the real-time and precise detection of robotic grasping poses, we proposed the GraspFast algorithm.</h3>
+    <h3>We conducted extensive experiments on the actual Franka robot, demonstrating that our GraspFast algorithm achieves real-time and accurate detection of grasp poses for various general objects.</h3>
+</header>
+<section>
+    <div class="ppp">To achieve real-time and accurate detection of grasp poses for general objects, we optimized and accelerated the detection process across multiple stages including data processing, feature extraction, and grasp parameter prediction. Below are specific optimization strategies for each part:</div>
+    <h2>FBB Method</h2>
+    <img src="FBB.png" alt="Foreground bounding box-guided lightweight point cloud preprocessing method" class="responsive-image">
+    <h2>MLE Backbone</h2>
+    <img src="MLE.png" alt="MinkowskiEngine-based Hierarchical Lightweight Point Cloud Feature Extraction Backbone" class="responsive-image">
+    <h2>GraspFast Algorithm</h2>
+    <img src="GraspFast.png" alt="Multi-stage Lightweight 6-DoF Grasp Pose Fast Detection Algorithm" class="responsive-image">
+    <h2>LGD Method</h2>
+    <img src="LGD.png" alt="Lightweight Optimal Grasp Direction Detection Method" class="responsive-image">
+    <h2>WADNet Module</h2>
+    <img src="WADNet.png" alt="WADNet Module" class="responsive-image">
+</section>
 
+<section>
+    <h2>Real Robot Grasp Experiments</h2>
+    <div class="video-container">
+        <h3>Experimental Platform For Visual Servoing Franka Robot Grasping</h3>
+        <div class="ppp">To validate the effectiveness of our GraspFast algorithm in real-world, we set up a grasping experiment platform using a Franka Emika robot and an Intel RealSense D435i depth camera, as shown in the figure below. We deploy our trained GraspFast model on a PC (Nvidia RTX 1080Ti, Intel Core i7-10700K CPU) for inference. To verify the generality of our GraspFast, all objects used in experiments are novel.</div>
+        <img src="platform.png" alt="Experimental Platform" class="responsive-image">
+    </div>
+    <div class="video-container">
+        <h3>Franka Grasping with Single Object</h3>
+        <p> We randomly selected one object for visualization of Franka robot grasping.</p>
+        <!-- <img src="Single_object.png" alt="WADNet Module" class="responsive-image"> -->
+<!--        <div class="video-container1">-->
+            <div class="flex-container">
+                <div class="flex-item" >
+                    <video controls autoplay class="video1" height="430">
+                        <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/isolated_1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <div class="flex-item">
+                    <video controls autoplay class="video1" height="430">
+                        <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/isolated_2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+<!--            </div>-->
+        </div>
+        <div class="flex-container">
+                <div class="flex-item" >
+                    <video controls autoplay class="video1" height="430">
+                        <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/isolated_3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="flex-item">
+                    <video controls autoplay class="video1" height="430">
+                        <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/isolated_4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+<!--            </div>-->
+        </div>
+    </div>
+
+    <div class="video-container">
+        <h3>Franka Grasping For Cluttered Scene (Small Objects) </h3>
+        <p>We conducted grasping experiments with a real robot in cluttered scenes containing only small objects. We visualized the entire grasping process.</p>
+        <video controls autoplay width="1280" height="720">
+            <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/Cluttered_3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-container">
+        <h3>Franka Grasping For Cluttered Scene (Large Objects)</h3>
+        <p>We conducted grasping experiments with a real robot in cluttered scenes containing only Large objects. We visualized the entire grasping process.</p>
+        <video controls autoplay width="1280" height="720">
+            <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/Cluttered_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-container">
+        <h3>Franka Robot Grasping For Cluttered Scene (Mixed Objects)</h3>
+        <p>We conducted grasping experiments with a real robot in cluttered scenes containing mixed scale objects. We visualized the entire grasping process.</p>
+        <video controls autoplay width="1280" height="720">
+            <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/Cluttered_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-container">
+        <h3>Franka Robot Grasping For Cluttered Scene (Mixed Objects)</h3>
+        <p>We conducted grasping experiments with a real robot in cluttered scenes containing mixed scale objects. We visualized the entire grasping process.</p>
+        <video controls autoplay width="1280" height="720">
+            <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/Cluttered_4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-container">
+        <h2>Failure Case of Single Object Grasping</h2>
+        <p>Due to the static friction force being less than the weight of the screwdriver, Franka failed to successfully lift the screwdriver when gripping it.</p>
+        <video controls autoplay width="1280" height="720">
+            <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/failurecase_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-container">
+        <h2>Failure Case of Multi Objects Grasping</h2>
+        <p>Bias in grasp pose detection in cluttered scenes with multiple objects.</p>
+        <video controls autoplay width="1280" height="720">
+            <source src="https://media.githubusercontent.com/media/upc-ghy/Franka-GraspFast/GraspFast/failurecase_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+<footer>
+    <p>&copy; Haiyuan Gui (email: guihaiyuan736570@gmail.com), Shanchen Pang* (email: pangsc@upc.edu.cn), Xiao He (email: xiao_he2022@126.com), et al.</p>
+    <p>China University of Petroleum (East China)</p>
+</footer>
 </body>
 </html>
